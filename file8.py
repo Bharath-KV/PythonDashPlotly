@@ -61,7 +61,7 @@ app.layout = html.Div([
         step=None
     ),
 
-    html.Div(id='output')
+    html.Div(id='output', style={'marginTop': 50})
 
 ])
 
@@ -107,12 +107,16 @@ def update_figure(xaxis_column_name, yaxis_column_name,
         )
     }
 
+
 @app.callback(
     Output('output', 'children'),
     [Input('indicator-graphic', component_property='clickData')]
 )
 def update_output(val):
-    print(val)
+    if val:
+        return 'You clicked on {}'.format(str(val['points'][0]['text']))
+    else:
+        return 'Click on any node in the above graph'
 
 
 if __name__ == '__main__':
