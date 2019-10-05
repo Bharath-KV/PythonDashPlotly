@@ -7,8 +7,8 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = html.Div([
-    dcc.Input(id='input-state-one', type='text', value='Bharath'),
-    dcc.Input(id='input-state-two', type='text', value='Sravani'),
+    dcc.Input(id='input-state-one', type='text', value='BK'),
+    dcc.Input(id='input-state-two', type='text', value='Software Developer'),
     html.Button(id='submit-button', n_clicks=0, children='SUBMIT'),
     html.Div(id='output-state')
 ])
@@ -22,7 +22,7 @@ app.layout = html.Div([
 )
 def update_state(n_clicks, state_one, state_two):
     return '''The Submit Button has been pressed {} times.\n
-              {} Loves {}.
+              Hi my name is {}, and I'm a {}.
     '''.format(n_clicks, state_one, state_two)
 
 
